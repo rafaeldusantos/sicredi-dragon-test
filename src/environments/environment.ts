@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/',
-  accessToken: 'c2ljcmVkZV90ZXN0ZToxcWF6MndzeA=='//sicrede_teste:1qaz2wsx
+  accessToken: 'c2ljcmVkaV90ZXN0ZToxcWF6MndzeA=='// sicredi_teste:1qaz2wsx
 };
 
 /*

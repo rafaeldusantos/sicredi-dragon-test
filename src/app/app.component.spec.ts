@@ -15,19 +15,19 @@ describe('AppComponent', () => {
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.CreateDragonComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it(`should have as title 'sicredi-dragon-test'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.CreateDragonComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('sicredi-dragon-test');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.CreateDragonComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('sicredi-dragon-test app is running!');

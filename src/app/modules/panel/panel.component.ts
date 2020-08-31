@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AppEventDispatcher } from 'src/app/shared/AppEventDispatcher';
-import { EventTypes } from 'src/app/shared/eventTypes';
-
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
@@ -10,8 +7,7 @@ import { EventTypes } from 'src/app/shared/eventTypes';
 })
 export class PanelComponent implements OnInit {
 
-  constructor() { 
-  }
+  constructor() {}
 
   ngOnInit() {}
 

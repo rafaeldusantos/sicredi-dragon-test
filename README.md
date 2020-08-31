@@ -1,27 +1,38 @@
-# SicrediDragonTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.10.
+# Blue Dragon - Test Sicredi
 
-## Development server
+  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+O Projeto é um teste criado para o Sicredi Digital, o mesmo foi desenvolvido em [Angular CLI](https://github.com/angular/angular-cli) version 8.3.10.
 
-## Code scaffolding
+Um Webapp com acesso restrito a uma listagem das maiores feras mitológicas da história, os Dragões.
+Possibilidade de você visualizar os animais, criar e editar e até mesmo remover qualquer criatura da lista.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  
 
-## Build
+## Demonstração
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  
 
-## Running unit tests
+Para ver o projeto, vá para [https://sicredi-dragon-test.herokuapp.com/](https://sicredi-dragon-test.herokuapp.com/).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  
 
-## Running end-to-end tests
+**Use as seguintes credenciais para ter acesso a todas as funcionalidades do site.**
+Usuário: sicredi_teste
+Senha: 1qaz2wsx
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  
+### Funcionalidades
+* Login
+* Listagem de Dragões
+* Detalhes de Dragão
+* Criação de Dragões
+* Edição de Dragões
+* Deleção de Dragões
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Rodar o projeto em localhost
+
+  
+use `ng serve` ou `npm run start` para iniciar o projeto no seu ambiente de desenvolvimento. Após completar o build, acesse no navegador pelo link `http://localhost:4200/`. 

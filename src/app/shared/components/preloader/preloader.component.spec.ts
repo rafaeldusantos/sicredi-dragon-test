@@ -14,7 +14,7 @@ describe('PreloaderComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PreloaderComponent);
+    fixture = TestBed.CreateDragonComponent(PreloaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

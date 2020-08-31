@@ -8,9 +8,8 @@ export class AuthenticationService {
 
   constructor() { }
 
-  login(username: string, password: string) : Boolean {
+  login(username: string, password: string): boolean {
     const token = btoa(`${username}:${password}`);
-    console.log(token)
 
     if (token === environment.accessToken) {
       localStorage.setItem('userLogged', token);

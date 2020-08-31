@@ -9,11 +9,13 @@ import { AuthenticationService } from '../../../services/authentication.service'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  open: boolean = false;
+  open: boolean;
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService
-  ) { }
+  ) {
+    this.open = false;
+  }
 
   ngOnInit() {
   }

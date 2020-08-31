@@ -14,7 +14,7 @@ describe('HeaderComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.CreateDragonComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

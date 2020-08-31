@@ -2,23 +2,23 @@ import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NotifierModule } from "angular-notifier";
+import { NotifierModule } from 'angular-notifier';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
-import { SharedModule } from '../../shared/shared.module'
+import { SharedModule } from '../../shared/shared.module';
 
 import { HeaderComponent } from './header/header.component';
-import { ListComponent } from './dragon/list/list.component';
-import { CreateComponent } from './dragon/create/create.component';
+import { ListDragonComponent } from './dragon/list/listDragon.component';
+import { CreateDragonComponent } from './dragon/create/createDragon.component';
 import { PanelComponent } from './panel.component';
 
 
 @NgModule({
   declarations: [
-    ListComponent,
-    CreateComponent,
+    ListDragonComponent,
+    CreateDragonComponent,
     HeaderComponent,
     PanelComponent
   ],
@@ -31,14 +31,14 @@ import { PanelComponent } from './panel.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NotifierModule.withConfig({
-			position: {
+      position: {
         horizontal: {
           position: 'right',
-          distance: 12
+          distance: 25
         },
         vertical: {
           position: 'top',
-          distance: 300,
+          distance: 100,
           gap: 10
         }
       }

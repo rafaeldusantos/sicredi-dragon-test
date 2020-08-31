@@ -22,30 +22,31 @@ import { AuthenticationService } from '../../../services/authentication.service'
   ]
 })
 export class LoginComponent implements OnInit {
-  active: Boolean;
+  active: boolean;
   loginForm: FormGroup;
   returnUrl: string;
-  sendForm: Boolean;
-  openError: Boolean;
+  sendForm: boolean;
+  openError: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     public authenticationService: AuthenticationService
-  ) { 
+  ) {
     this.active = false;
     this.sendForm = false;
     this.openError = false;
   }
 
   ngOnInit() {
+    const param = 'returnUrl';
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
     this.active = true;
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams[param] || '/';
   }
 
   get f() { return this.loginForm.controls; }
@@ -69,6 +70,4 @@ export class LoginComponent implements OnInit {
   focusInput() {
     this.active = true;
   }
-
- 
 }

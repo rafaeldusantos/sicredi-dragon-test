@@ -1,0 +1,19 @@
+.mensagemError {
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+  padding-bottom: 30px;
+  h3 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #23D2E2;
+    margin: 30px 0;
+  }
+  img {
+    max-width: 60%;
+    display: block;
+    margin: 25px auto;
+  }
+  p {
+    font-size: 16px;
+  }
+}

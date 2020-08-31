@@ -24,13 +24,13 @@ export class ModalDialogComponent implements OnInit {
   @Input() closable = true;
   @Input() visible: boolean;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
- 
+
   constructor() {}
- 
+
   ngOnInit() {
     AppEventDispatcher.listen('CLOSE_MODAL', () => {
-      this.close()
-    })
+      this.close();
+    });
   }
 
   close() {

@@ -20,9 +20,9 @@ import { EventTypes } from '../../eventTypes';
 export class PreloaderComponent implements OnInit {
 
   @Input() hide: boolean;
-	comp: string;
-	time: number;
-	show: boolean;
+  comp: string;
+  time: number;
+  show: boolean;
   constructor() {
     this.show = false;
   }
@@ -30,11 +30,11 @@ export class PreloaderComponent implements OnInit {
   ngOnInit() {
     AppEventDispatcher.listen(EventTypes.PRELOADER, (event) => {
       if (event === 'show') {
-				this.show = true;
-			} else if (event === 'hide') {
-				this.show = false;
-			}
-    })
+        this.show = true;
+      } else if (event === 'hide') {
+        this.show = false;
+      }
+    });
   }
 
 }

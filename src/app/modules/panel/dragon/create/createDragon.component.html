@@ -1,4 +1,4 @@
-<main class="create">
+<main class="create" *ngIf="!serverError">
   <div class="content-header">
     <div class="left">
       <h2 *ngIf="!id">Adicionar novo Dragão</h2>
@@ -49,3 +49,5 @@
     </form>
   </div>
 </main>
+<app-error></app-error>
+

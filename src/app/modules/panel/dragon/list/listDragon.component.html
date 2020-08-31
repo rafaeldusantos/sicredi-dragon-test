@@ -1,4 +1,4 @@
-<main class="list">
+<main class="list" *ngIf="!serverError">
   <div class="content-header">
     <div class="left">
       <h2>Lista de Dragões</h2>
@@ -72,6 +72,7 @@
     </div>
   </div>
 </main>
+<app-error></app-error>
 <app-modal-dialog [(visible)]="modalProccess">
   <div class="card-details">
     <h2 class="card-title">{{dragon.name}}</h2>

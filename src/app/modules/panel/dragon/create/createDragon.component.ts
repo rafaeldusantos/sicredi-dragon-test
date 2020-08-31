@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NotifierService } from "angular-notifier";
+import { NotifierService } from 'angular-notifier';
 
 import { DragonService } from 'src/app/services/dragon.service';
 import { Dragon } from 'src/app/models/dragon';
@@ -13,14 +13,15 @@ import { CustomValidator } from 'src/app/shared/utils/custom.validator';
 
 @Component({
   selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  templateUrl: './createDragon.component.html',
+  styleUrls: ['./createDragon.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class CreateDragonComponent implements OnInit {
   createForm: FormGroup;
   private readonly notifier: NotifierService;
   active: boolean;
-  sendForm: Boolean;
+  sendForm: boolean;
+  serverError: boolean;
   id: string;
 
   constructor(
@@ -29,7 +30,8 @@ export class CreateComponent implements OnInit {
     private notifierService: NotifierService,
     private route: ActivatedRoute,
     private dragonService: DragonService
-  ) { 
+  ) {
+    this.serverError = false;
     this.active = false;
     this.sendForm = false;
     this.notifier = notifierService;
@@ -44,14 +46,16 @@ export class CreateComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       AppEventDispatcher.dispatch(EventTypes.PRELOADER, 'show');
-      this.dragonService.getId(this.id).then((data: any) => {
+      this.dragonService.getId(this.id).subscribe((data: any) => {
         this.focusInput();
         this.createForm.patchValue(data);
         AppEventDispatcher.dispatch(EventTypes.PRELOADER, 'hide');
-      }).catch((error) => {
-        console.log(error);
+      },
+      error => {
+        this.error('Ocorreu um problema insperado.');
+
       });
-    } 
+    }
   }
 
   get f() { return this.createForm.controls; }
@@ -65,64 +69,72 @@ export class CreateComponent implements OnInit {
       dragon = {
         name: this.createForm.controls.name.value.trim(),
         type: this.createForm.controls.type.value.trim(),
-        createAt: new Date,
+        createAt: new Date(),
         history: this.createForm.controls.history.value,
         histories: []
-      }
-      if(this.id) {
+      };
+
+      if (this.id) {
         this.update(dragon);
       } else {
         this.save(dragon);
       }
     } else {
       this.notifier.show({
-        type: "error",
-        message: "Ajuste todos os campos inválidos antes de enviar o formulário.",
-        id: "error-form",
+        type: 'error',
+        message: 'Ajuste todos os campos inválidos antes de enviar o formulário.',
+        id: 'error-form',
       });
     }
   }
 
   save(dragon: Dragon) {
-    this.dragonService.post(dragon).then((data: any) => {
+    this.dragonService.post(dragon).subscribe((data: any) => {
       this.notifier.show({
-        type: "success",
-        message: `o Dragão "${dragon.name}" foi adicionado a lista.`,
-        id: "success-form",
+        type: 'success',
+        message: `o Dragão '${dragon.name}' foi adicionado a lista.`,
+        id: 'success-form',
       });
       this.router.navigate(['/']);
       AppEventDispatcher.dispatch(EventTypes.PRELOADER, 'hide');
       this.sendForm = false;
-    }).catch((error) => {
-      this.notifier.show({
-        type: "error",
-        message: error,
-        id: "success-form",
-      });
+    },
+    error => {
+      this.error('Ocorreu um problema insperado.');
+
     });
   }
 
   update(dragon: Dragon) {
-    this.dragonService.put(dragon, this.id).then((data: any) => {
+    this.dragonService.put(dragon, this.id).subscribe((data: any) => {
       this.notifier.show({
-        type: "success",
+        type: 'success',
         message: `o Dragão ${dragon.name} foi atualizado.`,
-        id: "success-form",
+        id: 'success-form',
       });
       this.router.navigate(['/']);
       AppEventDispatcher.dispatch(EventTypes.PRELOADER, 'hide');
       this.sendForm = false;
-    }).catch((error) => {
-      this.notifier.show({
-        type: "error",
-        message: error,
-        id: "success-form",
-      });
+    },
+    error => {
+      this.error('Ocorreu um problema insperado.');
+
     });
   }
 
   focusInput() {
     this.active = true;
+  }
+
+  error(message: string) {
+    this.notifier.show({
+      type: 'error',
+      message,
+      id: 'success-form',
+    });
+    AppEventDispatcher.dispatch(EventTypes.ERROR, 'show');
+    AppEventDispatcher.dispatch(EventTypes.PRELOADER, 'hide');
+    this.serverError = true;
   }
 
 }
