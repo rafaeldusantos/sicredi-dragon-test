@@ -1,0 +1,39 @@
+<main class="login">
+  <div class="login-boxe">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" [ngClass]="{'sendForm': sendForm}" (ngSubmit)="onSubmit()">
+
+      <div class="form-row">
+        <div class="form-item">
+          <div class="form-input" [ngClass]="{'active': active}">
+            <label [ngClass]="{'ng-invalid': (sendForm && f.username.errors) || openError}" for="login-username">Usuário ou e-mail</label>
+            <input type="text" formControlName="username" (focus)="focusInput()" [ngClass]="{'ng-invalid': openError}" id="login-username">
+          </div>
+        </div>
+      </div>
+     
+      <div class="form-row">
+        <div class="form-item">
+          <div class="form-input" [ngClass]="{'active': active}">
+            <label [ngClass]="{'ng-invalid': (sendForm && f.password.errors) || openError}" for="login-password">Senha</label>
+            <input type="password" formControlName="password" (focus)="focusInput()" [ngClass]="{'ng-invalid': openError}" id="login-password" name="login_password">
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-item">
+          <button class="button btn-block btn-medium btn-secondary">Entrar agora</button>
+        </div>
+      </div>
+      <div *ngIf="openError" class="login-invalid" [@fadeIn]>
+        <p>
+            Credenciais <strong>INCORRETAS</strong>, tente novamente com<br>
+            usuário e senha corretos ou <span>entre em contato</span> conosco.
+        </p>
+      </div>
+    </form>
+    <app-preloader></app-preloader>
+  </div>
+ 
+</main>

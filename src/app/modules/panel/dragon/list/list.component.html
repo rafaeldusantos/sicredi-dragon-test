@@ -1,0 +1,82 @@
+<main class="list">
+  <div class="content-header">
+    <div class="left">
+      <h2>Lista de Dragões</h2>
+      <div class="number-of-list">
+        {{ to }} - {{ from }} / 
+        <span class="total">{{totalDragon.length}}</span>
+      </div>
+    </div>
+    <div class="right">
+      <a routerLink="/create" class="btn-primary button transition" title="Cadastrar um novo dragão">Cadastrar Dragão</a>
+    </div>
+  </div>
+  <div class="content-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Data atualização</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dragon of list">
+          <td><a (click)="openDetails(dragon.id)" title="Ver detalhes">#{{dragon.id}}</a></td>
+          <td><a (click)="openDetails(dragon.id)" title="Ver detalhes">{{dragon.name}}</a></td>
+          <td>{{dragon.type | titlecase}}</td>
+          <td>{{dragon.createdAt | date : 'dd/MM/yyyy'}}</td>
+          <td class="actions">
+            <a routerLink="/update/{{dragon.id}}" class="btn-edit transition" title="Editar Dragão">
+              <i class="fas fa-pencil-alt"></i>
+            </a>
+            <button class="btn-delete transition"
+              mwlConfirmationPopover
+              [popoverTitle]="popoverTitle"
+              [popoverMessage]="popoverMessage"
+              [confirmText]="confirmText"
+              [cancelText]="cancelText"
+              placement="left"
+              (confirm)="remove(dragon.id)"
+              (cancel)="cancelClicked = true"
+              title="Deletar Dragão">
+                <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-footer">
+    <div class="right">
+      <ul class="paginator" *ngIf="pagination.totalPages > 1">
+        <li *ngIf="pagination.currentPage > 1">
+          <a (click)="pageChanged(pagination.currentPage - 1)" class="item-page transition">
+              <i class="fas fa-chevron-left"></i>
+          </a>
+        </li>
+        <li *ngFor="let page of pagination.pages">
+          <a class="item-page transition"
+            [ngClass]="{ 'active-page': page === pagination.currentPage}"
+            (click)="pageChanged(page)">{{page}}
+          </a>
+        </li>
+        <li *ngIf="pagination.currentPage < pagination.totalPages">
+          <a class="item-page transition" (click)="pageChanged(pagination.currentPage + 1)">
+              <i class="fas fa-chevron-right"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</main>
+<app-modal-dialog [(visible)]="modalProccess">
+  <div class="card-details">
+    <h2 class="card-title">{{dragon.name}}</h2>
+    <span class="card-type">{{dragon.type}}</span>
+    <p class="card-description" *ngIf="dragon.history">{{dragon.history}}</p>
+    <small>Última atualização: {{dragon.createdAt | date : 'dd/MM/yyyy'}}</small>
+  </div>
+</app-modal-dialog>

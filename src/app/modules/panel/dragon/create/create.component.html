@@ -1,0 +1,51 @@
+<main class="create">
+  <div class="content-header">
+    <div class="left">
+      <h2 *ngIf="!id">Adicionar novo Dragão</h2>
+      <h2 *ngIf="id">Atualizar dados do Dragão</h2>
+    </div>
+  </div>
+  <div class="content-body">
+    <form [formGroup]="createForm" [ngClass]="{'sendForm': sendForm}" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md">
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input" [ngClass]="{'active': active}">
+                <label [ngClass]="{'ng-invalid': sendForm && f.name.errors}" for="name">Nome</label>
+                <input type="text" formControlName="name" (focus)="focusInput()" id="name">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input" [ngClass]="{'active': active}">
+                <label [ngClass]="{'ng-invalid': sendForm && f.type.errors}"  for="type">Tipo</label>
+                <input type="text" formControlName="type" (focus)="focusInput()" id="type">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-row m-t-2">
+            <div class="form-item">
+              <div class="form-input" [ngClass]="{'active': active}">
+                <label for="history">História</label>
+                <textarea formControlName="history" (focus)="focusInput()" id="history"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="row m-t-1">
+        <div class="col-sm left">
+          <a routerLink="/" class="button btn-return transition" title="Retornar para listagem">Voltar</a>
+        </div>
+        <div class="col-sm right">
+          <button class="button btn-primary transition" title="Cadastrar um novo dragão">Adicionar Dragão</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

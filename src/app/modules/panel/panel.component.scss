@@ -1,0 +1,16 @@
+.panel {
+  margin-top: 158px;
+  padding-bottom: 40px;
+  .content {
+    background-color: #FFFFFF;
+    position: relative;
+    padding: 30px
+  }
+}
+@media screen and (max-width: 678px) {
+	.panel {
+    .content {
+      padding: 30px 10px
+    }
+  }
+}

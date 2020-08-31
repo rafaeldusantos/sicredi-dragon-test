@@ -1,1 +1,410 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #F1F1F8;
+  font-family: 'Rajdhani', sans-serif;
+}
+.container {
+  margin: auto;
+  max-width: 960px;
+  width: 100%;
+}
+.transition {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.right {
+ text-align: right;
+}
+
+.notifier__container p {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+/***********************
+/* STRUCTURE
+/************************/
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  .col-sm, .col-md {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+.m-t-1 { margin-top: 1rem;}
+
+@media screen and (max-width: 678px) {
+	.row {
+    .col-md  {
+      flex-basis: auto;
+    }
+    .m-t-2 { margin-top: 28px;}
+  }
+}
+/***********************
+/* FORMS
+/************************/
+.sendForm {
+  label {
+    &.ng-invalid {
+      color: #FF205E;
+    }
+  }
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  select {
+    &.ng-invalid {
+      border: 1px solid #FF205E;
+    }
+  }
+}
+label {
+  display: block;
+  margin: 0;
+  color: #666666;
+  line-height: 1em;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  font-family: 'Rajdhani', sans-serif;
+  width: 90%;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #FFFFFF;
+  border: 1px solid #b7b7d0;
+  color: #3E3F5E;
+  transition: border-color .2s ease-in-out;
+  font-family: 'Rajdhani', sans-serif;
+  &:focus {
+    border-color: #666666;
+    outline: none;
+  }
+}
+
+input[type="text"],
+input[type="password"] {
+  height: 54px;
+  padding: 0 5%;
+
+  &::placeholder {
+    color: #b7b7d0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+textarea {
+  padding: 14px 5%;
+  resize: none;
+
+  &::placeholder {
+    color: #b7b7d0;
+    font-weight: 600;
+  }
+}
+
+.form {
+  width: 100%;
+
+  & + {
+    .button {
+      margin-top: 40px;
+    }
+  }
+}
+
+.form-row {
+  width: 100%;
+
+  & + {
+    .form-row {
+      margin-top: 28px;
+    }
+  }
+
+  &.space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .form-item {
+      width: auto;
+    }
+  }
+
+  &.split {
+    display: flex;
+    flex-wrap: nowrap;
+
+    .form-item {
+      margin-right: 16px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      & > * {
+        margin-bottom: 28px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+form-item {
+  width: 100%;
+
+  &.auto-width {
+    width: auto;
+  }
+
+  &.centered {
+    display: flex;
+    align-items: center;
+  }
+
+  &.split {
+    display: flex;
+
+    &.medium {
+      & > * {
+        margin-right: 16px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    & > * {
+      width: 100%;
+      margin-right: 12px;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.form-input-decorated {
+  position: relative;
+
+  input[type="text"] {
+    padding-right: 60px;
+  }
+
+  .form-input-icon {
+    fill: #cccccc;
+    opacity: .6;
+    pointer-events: none;
+    position: absolute;
+    top: 14px;
+    right: 20px;
+  }
+}
+
+.form-input {
+  position: relative;
+
+  &.small {
+    label,
+    input,
+    textarea {
+      font-size: 14px;
+    }
+
+    label {
+      top: 16px;
+    }
+
+    input {
+      height: 48px;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    button {
+      width: 64px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &.full {
+    height: 100%;
+
+    textarea {
+      height: 100%;
+    }
+  }
+
+  &.mid-textarea {
+    textarea {
+      height: 124px;
+    }
+  }
+
+  &.medium-textarea {
+    textarea {
+      height: 160px;
+    }
+  }
+
+  &.active {
+    label {
+      background-color: #FFFFFF;
+      padding: 0 6px;
+      font-size: 14px;
+      top: -5px;
+      left: 12px;
+    }
+  }
+
+  label {
+    color: #b7b7d0;
+    font-size: 16px;
+    font-weight: 600px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: all .3s ease-in-out;
+    pointer-events: none;
+    font-family: 'Rajdhani', sans-serif;
+
+  }
+}
+.form-link {
+  font-weight: 600;
+  text-decoration: none;
+  color: #333333
+}
+
+/********************
+/* BUTTONS
+/*********************/
+.button, .btn {
+  font-family: 'Rajdhani', sans-serif;
+  display: inline-block;
+  height: 48px;
+  border-radius: 12px;
+  background-color: #3e3f5e;
+  color: #fff;
+  font-size: .875rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 
+    background-color .2s ease-in-out,color .2s ease-in-out,
+    border-color .2s ease-in-out,
+    box-shadow .2s ease-in-out;
+  padding-left: 40px;
+  padding-right: 40px;
+  border: none;
+
+  &.btn-block {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  &.btn-primary {
+    background-color: #23D2E2;  
+    &:hover {
+      background-color: #1bc5d4;
+    }
+  }
+  &.btn-secondary {
+    background-color: #615dfa;
+    box-shadow: 4px 7px 12px 0 rgba(97,93,250,.2);
+    &:hover {
+      background-color: #45437F;
+    }
+  }
+  &.btn-medium {
+    height: 54px;
+    line-height: 54px;
+  }
+
+  &.btn-return, 
+  &.btn-outline-secondary {
+    background-color: transparent;
+    border: 1px solid #b7b7d0;
+    color: #3E3F5E;
+    &:hover {
+      background-color: #b7b7d0;
+    }
+  }
+
+}
+
+.btn-edit {
+  background-color: #615DFA;
+  &:hover {
+    background-color: #45437F;
+  }
+}
+
+.btn-delete,
+.btn-danger {
+  background-color: #FF5384;
+  &:hover {
+    background-color: #FF205E
+  }
+}
+
+/********************
+/* POPVER
+/*********************/
+.popover {
+  display: block;
+  background: #FFF;
+  padding: 10px;
+  border: 1px solid #F1F1F8;
+  .popover-title {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .popover-content {
+    margin: 5px 0;
+    .confirm-btns {
+      margin: 5px 0;
+      .btn {
+        border-radius: 6px;
+        height: 36px;
+        line-height: 36px;
+      }
+    }
+  } 
+}

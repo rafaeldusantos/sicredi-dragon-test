@@ -1,0 +1,72 @@
+.header {
+  height: 170px;
+  width: 100%;
+  background: url('../../../../assets/images/bg-header.jpg') center no-repeat;
+  position: relative;
+  .shield {
+    background-color: #F1F1F8;
+    width: 374px;
+    margin: auto;
+    position: relative;
+    top: 30px;
+    border-radius: 50%;
+    h1 {
+      background: url('../../../../assets/images/logo.png') no-repeat center;
+      width: 197px;
+      height: 267px;
+      text-indent: -9999px;
+      margin: auto;
+      padding-top: 30px;
+    }
+  }
+  .close-session {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 0;
+      width: 150px;
+      -o-object-fit: contain;
+      object-fit: contain;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
+      border-radius: 4px;
+      background-color: #ffffff;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 3;
+      &.open{
+        display: flex;
+        flex-wrap: wrap;
+      }
+      button{
+        width: 100%;
+        display: block;
+        font-family: 'Rajdhani';
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.21;
+        letter-spacing: normal;
+        text-align: center;
+        color: #374657;
+        background: transparent;
+        padding: 15px 0;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          color: #FFFFFF;
+          background-color: #23D2E2;
+        }
+      }
+    }
+  }
+
+}

@@ -1,18 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { PanelModule } from './modules/panel/panel.module';
+
+import { AuthenticationService } from './services/authentication.service';
+import { DragonService } from './services/dragon.service';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    PanelModule,
+    AuthModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule
+  ],
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+  providers: [
+    AuthenticationService,
+    DragonService
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

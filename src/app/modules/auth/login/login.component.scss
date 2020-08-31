@@ -1,0 +1,33 @@
+
+.login-boxe {
+  width: 420px;
+  background-color: #FFFFFF;
+  padding: 50px 30px 80px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 0 60px 0 rgba(94,92,154,.12);
+  margin: auto;
+  position: relative;
+  h2 {
+    font-weight: 800;
+    font-size: 26px;
+    color: #333333;
+    margin: 10px 0 50px;
+    text-align: center;
+  }
+  .login-invalid{
+    width: 380px;
+    position: absolute;
+    bottom: 35px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+    p {
+      color: #fa0303;
+      font-size: 12px;
+      strong {font-weight: 600;}
+      span { text-decoration: underline;}
+    }
+  }
+}

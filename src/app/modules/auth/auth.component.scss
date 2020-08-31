@@ -1,0 +1,58 @@
+.auth {
+	padding: 0;
+	margin: 0;
+	font-family: 'Rajdhani', sans-serif;
+	background: url('../../../assets/images/background.jpg') center no-repeat;
+	.login-page {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+		align-content: stretch;
+		height: 100vh;
+		.login-info {
+			flex: 1;
+			text-align: center;
+			p {
+				font-size: 22px;
+				color: #FFFFFF;
+				margin-bottom: 20px;
+			}
+		}
+		.login-module {
+			align-self: center;
+			flex: 1;
+		}
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.auth {
+		.login-page{
+			flex-direction: column;
+			justify-content: inherit;
+			height: auto;
+			padding-bottom: 25px;
+			.login-info {
+				margin: 20px 0;
+				flex: unset;
+				p {
+					display: none;
+				}
+				img {
+					width: 150px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 520px) {
+	.login-boxe {
+		padding: 40px 30px 60px;
+		width: 100%;
+		h2 {
+			margin: 0 0 30px;
+		}
+	}
+}
