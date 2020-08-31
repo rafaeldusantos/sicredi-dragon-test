@@ -13,16 +13,6 @@ Possibilidade de você visualizar os animais, criar e editar e até mesmo remove
 ## Demonstração
 
   
-
-Para ver o projeto, vá para [https://sicredi-dragon-test.herokuapp.com/](https://sicredi-dragon-test.herokuapp.com/).
-
-  
-
-**Use as seguintes credenciais para ter acesso a todas as funcionalidades do site.**
-Usuário: sicredi_teste
-Senha: 1qaz2wsx
-
-  
 ### Funcionalidades
 * Login
 * Listagem de Dragões
@@ -32,7 +22,10 @@ Senha: 1qaz2wsx
 * Deleção de Dragões
 
 
-## Rodar o projeto em localhost
+### Rodar o projeto em localhost
 
-  
 use `ng serve` ou `npm run start` para iniciar o projeto no seu ambiente de desenvolvimento. Após completar o build, acesse no navegador pelo link `http://localhost:4200/`. 
+
+**Use as seguintes credenciais para ter acesso a todas as funcionalidades do site.**
+Usuário: sicredi_teste
+Senha: 1qaz2wsx
