@@ -29,4 +29,5 @@ use `ng serve` ou `npm run start` para iniciar o projeto no seu ambiente de dese
 **Use as seguintes credenciais para ter acesso a todas as funcionalidades do site.**
 
 Usuário: sicredi_teste
+
 Senha: 1qaz2wsx
