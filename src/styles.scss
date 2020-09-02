@@ -384,6 +384,12 @@ form-item {
   }
 }
 
+@media screen and (max-width: 360px) {
+  .dialog { 
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 /********************
 /* POPVER
 /*********************/

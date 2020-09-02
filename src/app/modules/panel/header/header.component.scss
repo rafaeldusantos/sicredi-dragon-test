@@ -68,5 +68,8 @@
       }
     }
   }
+}
 
+@media screen and (max-width: 360px) {
+  .header .shield { width: 100%; }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 import { Dragon } from '../models/dragon';
 
@@ -13,7 +14,11 @@ export class DragonService {
   constructor(public http: HttpClient) { }
 
   get(): Observable<any> {
-    return this.http.get(`${environment.baseUrl}dragon`);
+    return this.http.get(`${environment.baseUrl}dragon`)
+      .pipe(tap(data => {
+        data.sort((a, b) => (a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : -1);
+      }
+    ));
   }
 
   getId(id: string): Observable<any> {

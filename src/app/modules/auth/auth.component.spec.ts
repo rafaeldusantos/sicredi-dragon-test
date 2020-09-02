@@ -14,7 +14,7 @@ describe('AuthComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.CreateDragonComponent(AuthComponent);
+    fixture = TestBed.createComponent(AuthComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

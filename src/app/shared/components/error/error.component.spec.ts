@@ -14,7 +14,7 @@ describe('ErrorComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.CreateDragonComponent(ErrorComponent);
+    fixture = TestBed.createComponent(ErrorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -14,7 +14,7 @@ describe('PanelComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.CreateDragonComponent(PanelComponent);
+    fixture = TestBed.createComponent(PanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

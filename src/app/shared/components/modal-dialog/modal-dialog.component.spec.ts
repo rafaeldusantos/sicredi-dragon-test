@@ -14,7 +14,7 @@ describe('ModalDialogComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.CreateDragonComponent(ModalDialogComponent);
+    fixture = TestBed.createComponent(ModalDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

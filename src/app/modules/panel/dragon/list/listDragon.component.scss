@@ -86,6 +86,9 @@
           cursor: pointer;
           border: none;
         }
+        button {
+          padding: 11px 14px 12px 13px;
+        }
       }
       a {
         cursor: pointer;
@@ -162,11 +165,24 @@
 
 @media screen and (max-width: 678px) {
 	.content-header .left h2 {
+    margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+	.content-header .left h2 {
     &:before {
       bottom: -42px;
     }  
   }
-  .content-body .table td {
-    padding: 1rem .5rem;
+  .content-body {
+    overflow-y: hidden;
+    .table {
+      max-width: none;
+    }
+  }
+  .card-details {
+    background: none;
+    padding-top: 20px;
   }
 }

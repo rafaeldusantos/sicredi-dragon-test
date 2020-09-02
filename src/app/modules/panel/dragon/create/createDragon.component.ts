@@ -23,6 +23,7 @@ export class CreateDragonComponent implements OnInit {
   sendForm: boolean;
   serverError: boolean;
   id: string;
+  textButton: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,6 +36,7 @@ export class CreateDragonComponent implements OnInit {
     this.active = false;
     this.sendForm = false;
     this.notifier = notifierService;
+    this.textButton = 'Adicionar Dragão';
     this.createForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3), CustomValidator.spacesOnly]],
       type: ['', [Validators.required, Validators.minLength(2), CustomValidator.spacesOnly]],
@@ -46,6 +48,7 @@ export class CreateDragonComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       AppEventDispatcher.dispatch(EventTypes.PRELOADER, 'show');
+      this.textButton = 'Atualizar Dragão';
       this.dragonService.getId(this.id).subscribe((data: any) => {
         this.focusInput();
         this.createForm.patchValue(data);

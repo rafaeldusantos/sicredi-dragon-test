@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 import { DragonService } from 'src/app/services/dragon.service';
 import { NotifierService } from 'angular-notifier';
@@ -48,11 +49,14 @@ export class ListDragonComponent implements OnInit {
   }
 
   ngOnInit() {
-    AppEventDispatcher.dispatch(EventTypes.PRELOADER, 'show');
+    this.mountList();
+  }
+
+  mountList() {
     this.dragonService.get().subscribe(data => {
-      this.totalDragon = data.sort((a, b) => (a.name > b.name) ? 1 : -1);
-      this.list = this.paginate(this.pagination.currentPage);
+      this.totalDragon = data;
       AppEventDispatcher.dispatch(EventTypes.PRELOADER, 'hide');
+      this.list = this.paginate(this.pagination.currentPage);
     },
     error => {
       this.error('Ocorreu um problema insperado.');
@@ -60,11 +64,7 @@ export class ListDragonComponent implements OnInit {
   }
 
   paginate(page: number) {
-    let totalPages = this.totalDragon.length / this.perPage;
-    if (totalPages !== Math.trunc(totalPages)) {
-      totalPages = Math.trunc(totalPages) + 1;
-    }
-
+    const totalPages = Math.ceil(this.totalDragon.length / this.perPage);
     this.pagination = {
       totalPages,
       currentPage: page,
@@ -72,10 +72,10 @@ export class ListDragonComponent implements OnInit {
       perPage: this.perPage
     };
 
-    this.to = (this.pagination.perPage * this.pagination.currentPage) - 9;
-
-    this.from = this.pagination.perPage * this.pagination.currentPage < this.totalDragon.length
-      ? this.pagination.perPage * this.pagination.currentPage
+    const calcPage = this.pagination.perPage * this.pagination.currentPage;
+    this.to = (calcPage) - 9;
+    this.from = calcPage < this.totalDragon.length
+      ? calcPage
       : this.totalDragon.length;
 
     return this.totalDragon.slice(
@@ -105,15 +105,7 @@ export class ListDragonComponent implements OnInit {
         message: 'O Dragão foi removido da lista.',
         id: 'success-form',
       });
-      this.dragonService.get().subscribe((data: any) => {
-        this.totalDragon = data.sort((a, b) => (a.name > b.name) ? 1 : -1);
-        this.list = this.paginate(this.pagination.currentPage);
-        AppEventDispatcher.dispatch(EventTypes.PRELOADER, 'hide');
-      },
-      error => {
-        this.error('Ocorreu um problema insperado.');
-
-      });
+      this.mountList();
     },
     error => {
       this.error('Ocorreu um problema insperado.');
